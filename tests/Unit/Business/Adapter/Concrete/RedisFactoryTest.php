@@ -27,7 +27,8 @@ class RedisFactoryTest extends TestCase
      */
     public function testCreate(bool $isRedisInstalled)
     {
-        if (!\extension_loaded('redis')) {
+        $extLoaded = \extension_loaded('redis');
+        if (!$extLoaded) {
             $this->expectException(CacheException::class);
             $this->expectExceptionMessage('Extension `redis` should be installed.');
         }
@@ -48,8 +49,10 @@ class RedisFactoryTest extends TestCase
 //                return $facade;
 //            });
 //        } else {
-        $this->expectException(CacheException::class);
-        $this->expectExceptionMessage('Plugin `micro/plugin-redis` should be installed.');
+        if ($extLoaded) {
+            $this->expectException(CacheException::class);
+            $this->expectExceptionMessage('Plugin `micro/plugin-redis` should be installed.');
+        }
 //        }
 
         $factory = new RedisFactory($container);
