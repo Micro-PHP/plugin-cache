@@ -1,6 +1,6 @@
 {
-    "name": "micro/plugin-cache-core",
-    "description": "Micro Framework: Cache core component",
+    "name": "micro/plugin-cache",
+    "description": "Micro Framework: Plugin implements PSR6 and PSR16 cache",
     "license": "MIT",
     "type": "micro-plugin",
     "authors": [
