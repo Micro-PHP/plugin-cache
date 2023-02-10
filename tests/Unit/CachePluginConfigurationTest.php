@@ -1,0 +1,90 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ *  This file is part of the Micro framework package.
+ *
+ *  (c) Stanislau Komar <kost@micro-php.net>
+ *
+ *  For the full copyright and license information, please view the LICENSE
+ *  file that was distributed with this source code.
+ */
+
+namespace Micro\Plugin\Cache\Test\Unit;
+
+use Micro\Kernel\App\AppKernel;
+use Micro\Plugin\Cache\CachePlugin;
+use Micro\Plugin\Cache\Facade\CacheFacadeInterface;
+use Micro\Plugin\Doctrine\DoctrinePlugin;
+use PHPUnit\Framework\TestCase;
+
+class CachePluginConfigurationTest extends TestCase
+{
+    /**
+     * @dataProvider dataProvider
+     */
+    public function testGetPoolConfiguration(array $cfg)
+    {
+        $kernel = new AppKernel(
+            $cfg,
+            [
+                CachePlugin::class,
+                DoctrinePlugin::class,
+            ],
+        );
+
+        $kernel->run();
+        $cache6 = $kernel->container()->get(CacheFacadeInterface::class)->getCachePsr6('test');
+        $cache16 = $kernel->container()->get(CacheFacadeInterface::class)->getCachePsr16('test');
+
+        $key6 = uniqid();
+        $key16 = uniqid();
+        $val = new \stdClass();
+        $val->hello = 'World';
+
+        $cached16 = $cache16->get($key16, fn () => $val);
+
+        $this->assertEquals($val, $cached16);
+
+        $cacheItem = $cache6->getItem($key6);
+        $cacheItem->set($val);
+        $cache6->save($cacheItem);
+
+        $cacheItem = $cache6->getItem($key6);
+        $cachedValue = $cacheItem->get();
+
+        $this->assertInstanceOf(\stdClass::class, $cachedValue);
+        $this->assertEquals('World', $cachedValue->hello);
+    }
+
+    public function dataProvider(): array
+    {
+        return [
+            [
+                [
+                    'MICRO_CACHE_TEST_TYPE' => 'filesystem',
+                ],
+            ],
+            [
+                [
+                    'MICRO_CACHE_TEST_TYPE' => 'php_files',
+                ],
+            ],
+            [
+                [
+                    'MICRO_CACHE_TEST_TYPE' => 'array',
+                ],
+            ],
+            [
+                [
+                    'MICRO_CACHE_TEST_CONNECTION' => 'test',
+                    'ORM_TEST_DRIVER' => 'pdo_sqlite',
+                    'ORM_TEST_IN_MEMORY' => true,
+
+                    'MICRO_CACHE_TEST_TYPE' => 'doctrine',
+                ],
+            ],
+        ];
+    }
+}
