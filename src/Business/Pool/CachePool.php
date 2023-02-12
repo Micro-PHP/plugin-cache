@@ -15,6 +15,7 @@ namespace Micro\Plugin\Cache\Business\Pool;
 
 use Micro\Plugin\Cache\Business\Adapter\AdapterFactoryInterface;
 use Psr\Cache\CacheItemPoolInterface;
+use Symfony\Component\Cache\Adapter\AbstractAdapter;
 use Symfony\Component\Cache\Adapter\Psr16Adapter;
 use Symfony\Component\Cache\Psr16Cache;
 
@@ -47,6 +48,14 @@ class CachePool implements CachePoolInterface
         $item = $this->adapterFactory->create($cachePoolName);
 
         $this->cacheItemsCollection[$cachePoolName] = $item;
+
+        return $item;
+    }
+
+    public function getCacheSymfony(string $cachePoolName): AbstractAdapter
+    {
+        /** @var AbstractAdapter $item */
+        $item = $this->getCachePsr16($cachePoolName);
 
         return $item;
     }

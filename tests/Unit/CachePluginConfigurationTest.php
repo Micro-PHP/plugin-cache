@@ -35,22 +35,28 @@ class CachePluginConfigurationTest extends TestCase
         );
 
         $kernel->run();
-        $cache6 = $kernel->container()->get(CacheFacadeInterface::class)->getCachePsr6('test');
-        $cache16 = $kernel->container()->get(CacheFacadeInterface::class)->getCachePsr16('test');
+        $facade = $kernel->container()->get(CacheFacadeInterface::class);
+        $cache6 = $facade->getCachePsr6('test');
+        $cache16 = $facade->getCachePsr16('test');
+        $cacheSf = $facade->getCacheSymfony('test');
 
         $key6 = uniqid();
         $key16 = uniqid();
+        $keySf = uniqid();
         $val = new \stdClass();
         $val->hello = 'World';
 
-        $cached16 = $cache16->get($key16, fn () => $val);
+        $cached16 = $cache16->getItem($key16);
+        $cached16->set($val);
+        $cache16->save($cached16);
 
-        $this->assertEquals($val, $cached16);
+        $this->assertEquals($val, $cached16->get());
+
+        $this->assertEquals($val, $cacheSf->get($keySf, fn () => $val));
 
         $cacheItem = $cache6->getItem($key6);
         $cacheItem->set($val);
         $cache6->save($cacheItem);
-
         $cacheItem = $cache6->getItem($key6);
         $cachedValue = $cacheItem->get();
 
