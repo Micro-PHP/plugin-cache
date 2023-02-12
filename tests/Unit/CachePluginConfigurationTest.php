@@ -51,9 +51,7 @@ class CachePluginConfigurationTest extends TestCase
         $cache16->save($cached16);
 
         $this->assertEquals($val, $cache16->getItem($key16)->get());
-
         $this->assertEquals($val, $cached16->get());
-
         $this->assertEquals($val, $cacheSf->get($keySf, fn () => $val));
 
         $cacheItem = $cache6->getItem($key6);
