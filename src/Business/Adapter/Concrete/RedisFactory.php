@@ -17,7 +17,7 @@ use Micro\Component\DependencyInjection\Container;
 use Micro\Component\DependencyInjection\Exception\ServiceNotRegisteredException;
 use Micro\Plugin\Cache\Business\Adapter\ConcreteAdapterFactoryInterface;
 use Micro\Plugin\Cache\Configuration\Adapter\CachePoolConfigurationInterface;
-use Micro\Plugin\Redis\RedisFacadeInterface;
+use Micro\Plugin\Redis\Facade\RedisFacadeInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\Cache\Exception\CacheException;

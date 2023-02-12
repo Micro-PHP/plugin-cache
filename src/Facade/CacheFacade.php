@@ -16,6 +16,7 @@ namespace Micro\Plugin\Cache\Facade;
 use Micro\Plugin\Cache\Business\Pool\CachePoolFactoryInterface;
 use Micro\Plugin\Cache\Business\Pool\CachePoolInterface;
 use Psr\Cache\CacheItemPoolInterface;
+use Symfony\Component\Cache\Adapter\AbstractAdapter;
 
 class CacheFacade implements CacheFacadeInterface
 {
@@ -35,6 +36,11 @@ class CacheFacade implements CacheFacadeInterface
     public function getCachePsr16(string $cachePoolName): CacheItemPoolInterface
     {
         return $this->getCachePool()->getCachePsr16($cachePoolName);
+    }
+
+    public function getCacheSymfony(string $cachePoolName): AbstractAdapter
+    {
+        return $this->getCachePool()->getCacheSymfony($cachePoolName);
     }
 
     protected function getCachePool(): CachePoolInterface

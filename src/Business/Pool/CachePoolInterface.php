@@ -15,6 +15,7 @@ namespace Micro\Plugin\Cache\Business\Pool;
 
 use Psr\Cache\CacheException;
 use Psr\Cache\CacheItemPoolInterface;
+use Symfony\Component\Cache\Adapter\AbstractAdapter;
 
 interface CachePoolInterface
 {
@@ -27,4 +28,9 @@ interface CachePoolInterface
      * @throws CacheException
      */
     public function getCachePsr6(string $cachePoolName): CacheItemPoolInterface;
+
+    /**
+     * @throws CacheException
+     */
+    public function getCacheSymfony(string $cachePoolName): AbstractAdapter;
 }

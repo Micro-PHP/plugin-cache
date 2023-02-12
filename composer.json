@@ -20,7 +20,7 @@
         "ergebnis/composer-normalize": "^2.29",
         "friendsofphp/php-cs-fixer": "^3.13",
         "micro/plugin-doctrine": "^1.6",
-        "micro/plugin-redis": "^1.0",
+        "micro/plugin-redis": "^1.6",
         "phpstan/phpstan": "^1.9",
         "phpunit/php-code-coverage": "^9.2",
         "phpunit/phpunit": "^9.5",
