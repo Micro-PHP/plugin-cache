@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Micro\Plugin\Cache;
 
-use Micro\Framework\Kernel\Configuration\PluginConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginConfiguration;
 use Micro\Plugin\Cache\Configuration\Adapter\CachePoolConfiguration;
 use Micro\Plugin\Cache\Configuration\Adapter\CachePoolConfigurationInterface;
 use Micro\Plugin\Cache\Configuration\CachePluginConfigurationInterface;

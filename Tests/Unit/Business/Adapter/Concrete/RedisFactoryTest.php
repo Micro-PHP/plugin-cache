@@ -11,10 +11,10 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Cache\Test\Unit\Business\Adapter\Concrete;
+namespace Micro\Plugin\Cache\Tests\Unit\Business\Adapter\Concrete;
 
-use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Configuration\DefaultApplicationConfiguration;
+use Micro\Framework\DependencyInjection\Container;
+use Micro\Framework\BootConfiguration\Configuration\DefaultApplicationConfiguration;
 use Micro\Plugin\Cache\Business\Adapter\Concrete\RedisFactory;
 use Micro\Plugin\Cache\Configuration\Adapter\CachePoolConfiguration;
 use PHPUnit\Framework\TestCase;

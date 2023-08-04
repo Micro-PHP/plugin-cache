@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Cache\Test\Unit\Facade;
+namespace Micro\Plugin\Cache\Tests\Unit\Facade;
 
 use Micro\Plugin\Cache\Business\Pool\CachePoolFactoryInterface;
 use Micro\Plugin\Cache\Facade\CacheFacade;

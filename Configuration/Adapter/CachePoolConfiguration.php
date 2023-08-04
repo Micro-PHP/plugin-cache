@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Micro\Plugin\Cache\Configuration\Adapter;
 
-use Micro\Framework\Kernel\Configuration\PluginRoutingKeyConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginRoutingKeyConfiguration;
 
 class CachePoolConfiguration extends PluginRoutingKeyConfiguration implements CachePoolConfigurationInterface
 {

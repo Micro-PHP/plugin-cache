@@ -11,9 +11,9 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Cache\Test\Unit\Configuration\Adapter;
+namespace Micro\Plugin\Cache\Tests\Unit\Configuration\Adapter;
 
-use Micro\Framework\Kernel\Configuration\DefaultApplicationConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\DefaultApplicationConfiguration;
 use Micro\Plugin\Cache\Configuration\Adapter\CachePoolConfiguration;
 use PHPUnit\Framework\TestCase;
 

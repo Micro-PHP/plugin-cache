@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Cache\Test\Unit\Business\Adapter;
+namespace Micro\Plugin\Cache\Tests\Unit\Business\Adapter;
 
 use Micro\Plugin\Cache\Business\Adapter\AdapterFactory;
 use Micro\Plugin\Cache\Business\Adapter\ConcreteAdapterFactoryInterface;

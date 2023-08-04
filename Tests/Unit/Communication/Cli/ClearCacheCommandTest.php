@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  file that was distributed with this source code.
  */
 
-namespace Micro\Plugin\Cache\Test\Unit\Communication\Cli;
+namespace Micro\Plugin\Cache\Tests\Unit\Communication\Cli;
 
 use Micro\Plugin\Cache\Communication\Cli\ClearCacheCommand;
 use Micro\Plugin\Cache\Facade\CacheFacadeInterface;

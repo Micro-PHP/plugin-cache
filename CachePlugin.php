@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Micro\Plugin\Cache;
 
-use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\ConfigurableInterface;
-use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
-use Micro\Framework\Kernel\Plugin\PluginConfigurationTrait;
+use Micro\Framework\DependencyInjection\Container;
+use Micro\Framework\BootConfiguration\Plugin\ConfigurableInterface;
+use Micro\Framework\BootDependency\Plugin\DependencyProviderInterface;
+use Micro\Framework\BootConfiguration\Plugin\PluginConfigurationTrait;
 use Micro\Plugin\Cache\Business\Adapter\AdapterFactory;
 use Micro\Plugin\Cache\Business\Adapter\AdapterFactoryInterface;
 use Micro\Plugin\Cache\Business\Adapter\Concrete\ApcuFactory;
