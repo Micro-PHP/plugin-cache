@@ -23,7 +23,7 @@ use Psr\Cache\CacheException;
 class RedisFactoryTest extends TestCase
 {
     /**
-     * @dataProvider dataProviver
+     * @dataProvider dataProvider
      */
     public function testCreate(bool $isRedisInstalled)
     {
@@ -39,7 +39,7 @@ class RedisFactoryTest extends TestCase
         $cfg = new CachePoolConfiguration($appCfg, 'test');
 
         $container = new Container();
-        // TODO: IMplements after delete decorator `RedisInterface`
+        // TODO: Implement after delete decorator `RedisInterface`
 //        if($isRedisInstalled) {
 //            $container->register(RedisFacadeInterface::class, function () {
 //                $facade = $this->createMock(RedisFacadeInterface::class);
@@ -59,10 +59,10 @@ class RedisFactoryTest extends TestCase
         $factory->create($cfg);
     }
 
-    public function dataProviver(): array
+    public static function dataProvider(): array
     {
         return [
-            //            [true],
+            // [true],
             [false],
         ];
     }

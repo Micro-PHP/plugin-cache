@@ -64,7 +64,7 @@ class CachePluginConfigurationTest extends TestCase
         $this->assertEquals('World', $cachedValue->hello);
     }
 
-    public function dataProvider(): array
+    public static function dataProvider(): array
     {
         return [
             [

@@ -16,14 +16,14 @@ namespace Micro\Plugin\Cache\Business\Adapter;
 use Micro\Plugin\Cache\Configuration\CachePluginConfigurationInterface;
 use Psr\Cache\CacheItemPoolInterface;
 
-class AdapterFactory implements AdapterFactoryInterface
+readonly class AdapterFactory implements AdapterFactoryInterface
 {
     /**
      * @param iterable<ConcreteAdapterFactoryInterface> $cacheConcreteAdapterFactoryCollection
      */
     public function __construct(
-        private readonly CachePluginConfigurationInterface $cachePluginConfiguration,
-        private readonly iterable $cacheConcreteAdapterFactoryCollection
+        private CachePluginConfigurationInterface $cachePluginConfiguration,
+        private iterable $cacheConcreteAdapterFactoryCollection
     ) {
     }
 
