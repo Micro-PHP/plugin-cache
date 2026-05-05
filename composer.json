@@ -14,7 +14,7 @@
         "micro/plugin-console": "^1.6",
         "psr/cache": "^3.0",
         "psr/simple-cache": "^3.0",
-        "symfony/cache": "^6"
+        "symfony/cache": "^6|^7"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.29",
